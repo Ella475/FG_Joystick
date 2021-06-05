@@ -32,7 +32,6 @@ object Client {
 
     // connect to flight-gear
     fun connect(ip: String, portStr: String): Result<ConnectedUser> {
-
         // create thread to open the socket
         mainThread = Executors.newSingleThreadExecutor()
 
@@ -96,5 +95,6 @@ object Client {
         threadPool!!.awaitTermination(30, TimeUnit.SECONDS)
         mainThread!!.shutdown()
         mainThread!!.awaitTermination(30, TimeUnit.SECONDS)
+        stop = false
     }
 }
